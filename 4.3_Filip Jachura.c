@@ -3,7 +3,6 @@
 #include<time.h>
 int losujLiczbe()
 {
-    srand(time(NULL));
     return rand()%9;
 }
 
@@ -78,6 +77,7 @@ int tabMax(int tab[], int dlugosc)
 
 int main(void)
 {
+    srand(time(NULL));
     int kulki[9];
     stworzTablice(kulki);
     int wybraneKulki1[6];
