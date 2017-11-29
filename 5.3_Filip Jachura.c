@@ -10,7 +10,8 @@ for (int i = 0; i< poziomy; i++)
     array[i] = (int **) malloc(kolumny*sizeof(int *));
     for (int j = 0; j < kolumny; j++)
         {
-        array[i][j] = (int *)malloc(wiersze*sizeof(int));
+        array[i][j] = (int*)malloc(wiersze*sizeof(int));
+	//printf("%d\n",*array[i][j]);
         }
     }
 return array;
@@ -27,26 +28,36 @@ return array;
 void uzupelnijMacierz(int** macierz)
 {
 
-    macierz[0][0]=rand()%200-100;
-    macierz[0][1]=rand()%200-100;
-    macierz[1][0]=rand()%200-100;
-    macierz[1][1]=rand()%200-100;
+    macierz[0][0]=rand()%201-100;
+    macierz[0][1]=rand()%201-100;
+    macierz[1][0]=rand()%201-100;
+    macierz[1][1]=rand()%201-100;
 }
 void zamien2Dna3D(int***tab, int**macierz1, int**macierz2)
 {
     tab[0]=macierz1;
     tab[1]=macierz2;
 }
-void destroy3DArray(int*** arr)
+void destroy3DArray(int*** arr, int dlugosc)
 {
+    for (int i=0; i<dlugosc; i++)
+    {
+	
+	    for (int j = 0;j<dlugosc;j++)
+	    {
+		free(arr[i][j]);
+	    }
+	free(*arr[i]);
+    }
     free(**arr);
-    free(*arr);
-    free(arr);
 }
-void destroy2DArray(int** arr)
+void destroy2DArray(int** arr, int dlugosc)
 {
+    for (int i = 0;i<dlugosc;i++)
+    {
+	free(arr[i]);
+    }
     free(*arr);
-    free(arr);
 }
 int **pomnozMacierze(int*** macierz)
 {
@@ -103,9 +114,9 @@ int main(void)
     printf("Wynik: \n");
     wyswietlMacierz(mnozenie,2);
 
-    destroy2DArray(macierz1);
-    destroy2DArray(macierz2);
-    destroy3DArray(arr);
+    destroy2DArray(macierz1,2);
+    destroy2DArray(macierz2,2);
+    destroy3DArray(arr,2);
     return 0;
 
 }
