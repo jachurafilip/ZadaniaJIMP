@@ -37,7 +37,17 @@ void zamien2Dna3D(int***tab, int**macierz1, int**macierz2)
     tab[0]=macierz1;
     tab[1]=macierz2;
 }
-
+void destroy3DArray(int*** arr)
+{
+    free(**arr);
+    free(*arr);
+    free(arr);
+}
+void destroy2DArray(int** arr)
+{
+    free(*arr);
+    free(arr);
+}
 int **pomnozMacierze(int*** macierz)
 {
     int** macierz1 = stworzTablice2D(2,2);
@@ -57,7 +67,6 @@ int **pomnozMacierze(int*** macierz)
             wynik[i][j]=suma;
         }
     }
-
     return wynik;
 }
 void wyswietlMacierz(int**macierz, int rozmiar)
@@ -93,6 +102,10 @@ int main(void)
 
     printf("Wynik: \n");
     wyswietlMacierz(mnozenie,2);
+
+    destroy2DArray(macierz1);
+    destroy2DArray(macierz2);
+    destroy3DArray(arr);
     return 0;
 
 }
