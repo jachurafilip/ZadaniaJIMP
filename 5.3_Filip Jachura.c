@@ -11,7 +11,6 @@ for (int i = 0; i< poziomy; i++)
     for (int j = 0; j < kolumny; j++)
         {
         array[i][j] = (int*)malloc(wiersze*sizeof(int));
-	//printf("%d\n",*array[i][j]);
         }
     }
 return array;
