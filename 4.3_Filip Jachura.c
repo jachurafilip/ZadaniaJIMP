@@ -23,7 +23,7 @@ void wybierzKulki(int tab[], int ile)
     for (int i=0; i<ile; i++)
     {
         scanf("%d",&tmp);
-        while(tmp>8)
+        while(tmp>8 || tmp<0)
         {
             printf("Podaj liczbe z przedzialu 0-8\n");
             scanf("%d",&tmp);
