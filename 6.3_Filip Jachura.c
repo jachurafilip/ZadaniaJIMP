@@ -19,7 +19,7 @@ void drukuj(int* tab){
 	for (int i=0; i<10; i++){
 		printf("%d ", *(tab+i));
 	}
-	printf("\]\n");
+	printf("]\n");
 }
 float srednia(int* tab){
 	int suma=0;
