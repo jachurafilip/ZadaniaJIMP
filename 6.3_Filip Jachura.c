@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include<conio.h> //getch()
 int compare(const void* _a, const void* _b)
 {
   int a = *(int*)_a;
