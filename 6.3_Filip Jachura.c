@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include<conio.h> //getch()
+#include<conio.h> //getch()  DZIAŁA TYLKO NA WINDOWSIE
 int compare(const void* _a, const void* _b)
 {
   int a = *(int*)_a;
