@@ -35,8 +35,8 @@ void wybierz(char c)
 int main()
 {
     char c;
-    printf("Podaj jak chcesz zamieniac:\n\"
-           "s - Stopnie na radiany \n\"
+    printf("Podaj jak chcesz zamieniac:\n"
+           "s - Stopnie na radiany \n"
            "r - Radiany na stopnie\n");
     scanf("%c",&c);
     wybierz(c);
