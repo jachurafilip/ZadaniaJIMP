@@ -13,30 +13,31 @@ double RadianyNaStopnie(double kat)
 }
 
 void wybierz(char c)
-{   double kat;
-    switch(c)
-    {
-    case 's':
-        printf("Podaj ile stopni ma kat\n");
-        scanf("%lf",&kat);
-        printf("Kat ma %lf radianow",StopnieNaRadiany(kat));
-        break;
-    case 'r':
-        printf("Podaj ile radianow ma kat\n");
-        scanf("%lf",&kat);
-        printf("Kat ma %lf stopni",RadianyNaStopnie(kat));
-        break;
-    default:
-        printf("Wprowadzono bledne dane");
-    }
+{
+  double kat;
+  switch(c)
+  {
+  case 's':
+      printf("Podaj ile stopni ma kat\n");
+      scanf("%lf",&kat);
+      printf("Kat ma %lf radianow",StopnieNaRadiany(kat));
+      break;
+  case 'r':
+      printf("Podaj ile radianow ma kat\n");
+      scanf("%lf",&kat);
+      printf("Kat ma %lf stopni",RadianyNaStopnie(kat));
+      break;
+  default:
+      printf("Wprowadzono bledne dane");
+  }
 }
 
 int main()
 {
     char c;
-    printf("Podaj jak chcesz zamieniac:\n\
-s - Stopnie na radiany \n\
-r - Radiany na stopnie\n");
+    printf("Podaj jak chcesz zamieniac:\n\"
+           "s - Stopnie na radiany \n\"
+           "r - Radiany na stopnie\n");
     scanf("%c",&c);
     wybierz(c);
     return 0;
