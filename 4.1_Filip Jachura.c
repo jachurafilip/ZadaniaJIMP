@@ -15,13 +15,13 @@ void liczPierwiaski(double a, double b, double c)
     }
     else if(delta(a,b,c) == 0)
     {
-      int pierwiastek=-b/(2*a)
+      double pierwiastek=-b/(2*a);
       printf("Jedynym pierwiastkiem rownania jest liczba %lf",pierwiastek);
     }
     else
     {
-      int pierwiastek1=(-b+pow(delta(a,b,c),0.5))/(2*a);
-      int pierwiastek2=(-b-pow(delta(a,b,c),0.5))/(2*a);
+      double pierwiastek1=(-b+pow(delta(a,b,c),0.5))/(2*a);
+      double pierwiastek2=(-b-pow(delta(a,b,c),0.5))/(2*a);
 
       printf("Istnieja dwa piewiastki: %lf i %lf",pierwiastek1,pierwiastek2);
     }
@@ -35,7 +35,7 @@ int main()
     while(a==0)
     {
       printf("Rownanie nie jest kwadratowe. Podaj a rozne od 0:\n");
-      scanf("%lf".&a);
+      scanf("%lf",&a);
     }
     printf("b=");
     scanf("%lf",&b);
