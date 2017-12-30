@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double CtoF(double temp)
+double CelsjuszDoFarenheit(double temp)
 {
     return temp*1.8+32;
 }
 
-double FtoC(double temp)
+double FarenheitDoCelsjusz(double temp)
 {
     return (temp-32)/1.8;
 }
@@ -19,10 +19,10 @@ void wybierz(char c)
     switch(c)
     {
         case 'c':
-            printf("%lf",CtoF(temp));
+            printf("%lf",CelsjuszDoFarenheit(temp));
             break;
         case 'f':
-            printf("%lf",FtoC(temp));
+            printf("%lf",FarenheitDoCelsjusz(temp));
             break;
         default:
             printf("Wprowadziles zle dane");
@@ -32,9 +32,9 @@ void wybierz(char c)
 }
 int main()
 {
-printf("Podaj jak chcesz zamienic:\n\
-c - Celsjusz na Farenheit \n\
-f - Farenheit na Celsjusz \n");
+  printf("Podaj jak chcesz zamienic:\n\"
+        "c - Celsjusz na Farenheit \n\"
+        "f - Farenheit na Celsjusz \n");
     char c;
     scanf("%c",&c);
     wybierz(c);
