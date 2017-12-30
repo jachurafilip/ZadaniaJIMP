@@ -32,8 +32,8 @@ void wybierz(char c)
 }
 int main()
 {
-  printf("Podaj jak chcesz zamienic:\n\"
-        "c - Celsjusz na Farenheit \n\"
+  printf("Podaj jak chcesz zamienic:\n"
+        "c - Celsjusz na Farenheit \n"
         "f - Farenheit na Celsjusz \n");
     char c;
     scanf("%c",&c);
