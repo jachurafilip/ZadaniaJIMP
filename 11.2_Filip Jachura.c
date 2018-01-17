@@ -39,7 +39,7 @@ int readAndSort(char* plik, int*tab)
     	{
        	if(feof(dane))
        	{
-	 		 	 	break;
+					break;
 	 		 	}
        	fscanf(dane,"%d",&tab[i]);
        	i++;
@@ -74,4 +74,3 @@ int main(int argc, char **argv)
 
   return 0;
 }
-
