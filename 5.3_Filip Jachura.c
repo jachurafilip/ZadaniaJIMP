@@ -4,25 +4,25 @@
 
 int ***stworzTablice3D(int wiersze, int kolumny, int poziomy)
 {
-int *** array = (int ***)malloc(poziomy*sizeof(int**));
-for (int i = 0; i< poziomy; i++)
+    int *** array = (int ***)malloc(poziomy*sizeof(int**));
+    for (int i = 0; i< poziomy; i++)
     {
-    array[i] = (int **) malloc(kolumny*sizeof(int *));
-    for (int j = 0; j < kolumny; j++)
+        array[i] = (int **) malloc(kolumny*sizeof(int *));
+        for (int j = 0; j < kolumny; j++)
         {
-        array[i][j] = (int*)malloc(wiersze*sizeof(int));
+            array[i][j] = (int*)malloc(wiersze*sizeof(int));
         }
     }
-return array;
+    return array;
 }
 int **stworzTablice2D(int wiersze, int kolumny)
 {
-int ** array = (int **)malloc(kolumny*sizeof(int*));
-for (int i = 0; i< kolumny; i++)
+    int ** array = (int **)malloc(kolumny*sizeof(int*));
+    for (int i = 0; i< kolumny; i++)
     {
-    array[i] = (int *) malloc(wiersze*sizeof(int));
+        array[i] = (int *) malloc(wiersze*sizeof(int));
     }
-return array;
+    return array;
 }
 void uzupelnijMacierz(int** macierz)
 {
@@ -41,20 +41,20 @@ void destroy3DArray(int*** arr, int dlugosc)
 {
     for (int i=0; i<dlugosc; i++)
     {
-	
-	    for (int j = 0;j<dlugosc;j++)
-	    {
-		free(arr[i][j]);
-	    }
-	free(*arr[i]);
+
+        for (int j = 0; j<dlugosc; j++)
+        {
+            free(arr[i][j]);
+        }
+        free(*arr[i]);
     }
     free(**arr);
 }
 void destroy2DArray(int** arr, int dlugosc)
 {
-    for (int i = 0;i<dlugosc;i++)
+    for (int i = 0; i<dlugosc; i++)
     {
-	free(arr[i]);
+        free(arr[i]);
     }
     free(*arr);
 }
@@ -62,8 +62,10 @@ int **pomnozMacierze(int*** macierz)
 {
     int** macierz1 = stworzTablice2D(2,2);
     int** macierz2 = stworzTablice2D(2,2);
+	
     macierz1=macierz[0];
     macierz2=macierz[1];
+	
     int**wynik = stworzTablice2D(2,2);
     int suma=0;
     for (int i=0; i<2; i++)
@@ -81,9 +83,9 @@ int **pomnozMacierze(int*** macierz)
 }
 void wyswietlMacierz(int**macierz, int rozmiar)
 {
-    for (int i=0; i<rozmiar;i++)
+    for (int i=0; i<rozmiar; i++)
     {
-        for(int j=0;j<rozmiar;j++)
+        for(int j=0; j<rozmiar; j++)
         {
             printf("%d ",macierz[i][j]);
         }
@@ -117,5 +119,4 @@ int main(void)
     destroy2DArray(macierz2,2);
     destroy3DArray(arr,2);
     return 0;
-
 }
