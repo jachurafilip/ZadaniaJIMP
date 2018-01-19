@@ -22,23 +22,26 @@ int sprawdzCzas(int czas[3])
   return 1;
 }
 
+void podajCzas(int czas[3])
+{
+  printf("Podaj godzine\n");
+  scanf ("%d%d%d", czas, czas+1,czas+2);
+}
+
 int main(void)
 {
   int czas1 [3];
   int czas2 [3];
 
-  printf("Podaj pierwsza godzine\n");
-  scanf ("%d%d%d", czas1, czas1+1,czas1+2);
-
-  printf("Podaj druga godzine\n");
-  scanf ("%d%d%d", czas2, czas2+1, czas2+2);
+  podajCzas(czas1);
+  podajCzas(czas2);
 
   if(!(sprawdzCzas(czas1)&&sprawdzCzas(czas2)))
   {
     printf ("Nieprawidlowy format. Uzyj hh:mm:ss\n");
     return 0;
   }
-  
+
   if (porownaj (czas1, czas2)==1)
   {
     printf("Pierwsza wprowadzona godzina jest pozniejsza niz druga");
@@ -51,6 +54,6 @@ int main(void)
   {
     printf("Druga wprowadzona godzina jest pozniejsza niz pierwsza");
   }
-  
+
   return 0;
 }
