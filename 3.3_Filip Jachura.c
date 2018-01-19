@@ -34,11 +34,11 @@ void wybierz(char c)
 
 int main()
 {
-    char c;
+    char stopnie;
     printf("Podaj jak chcesz zamieniac:\n"
            "s - Stopnie na radiany \n"
            "r - Radiany na stopnie\n");
-    scanf("%c",&c);
-    wybierz(c);
+    stopnie = getchar();
+    wybierz(stopnie);
     return 0;
 }
