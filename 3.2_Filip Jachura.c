@@ -1,42 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double CelsjuszDoFarenheit(double temp)
+  double CelsjuszDoFarenheit(double temp) 
+  {
+    return temp * 1.8 + 32;
+  }
+
+double FarenheitDoCelsjusz(double temp) 
 {
-    return temp*1.8+32;
+  return (temp - 32) / 1.8;
 }
 
-double FarenheitDoCelsjusz(double temp)
+void wybierz(char c) 
 {
-    return (temp-32)/1.8;
+  double temp;
+  printf("Podaj temperature:\n");
+  scanf("%lf", & temp);
+  switch (c) 
+  {
+  case 'c':
+    printf("%lf", CelsjuszDoFarenheit(temp));
+    break;
+  case 'f':
+    printf("%lf", FarenheitDoCelsjusz(temp));
+    break;
+  default:
+    printf("Wprowadziles zle dane");c
+  }
 }
 
-void wybierz(char c)
-{
-    double temp;
-    printf("Podaj temperature:\n");
-    scanf("%lf",&temp);
-    switch(c)
-    {
-        case 'c':
-            printf("%lf",CelsjuszDoFarenheit(temp));
-            break;
-        case 'f':
-            printf("%lf",FarenheitDoCelsjusz(temp));
-            break;
-        default:
-            printf("Wprowadziles zle dane");
-
-    }
-
-}
-int main()
+int main() 
 {
   printf("Podaj jak chcesz zamienic:\n"
-        "c - Celsjusz na Farenheit \n"
-        "f - Farenheit na Celsjusz \n");
-    char c;
-    scanf("%c",&c);
-    wybierz(c);
-    return 0;
+         "c - Celsjusz na Farenheit \n"
+         "f - Farenheit na Celsjusz \n");
+    
+  char stopnie;
+  stopnie = getchar();
+  wybierz(stopnie);
+  return 0;
 }
