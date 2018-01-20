@@ -2,21 +2,31 @@
 #include <stdlib.h>
 #include <time.h>
 
-void wypelnij (int macierz [3][3])
+int **stworzTablice2D(int wiersze, int kolumny)
 {
-  for (int i =0; i<3; i++)
+  int ** array = (int **)malloc(kolumny*sizeof(int*));
+  for (int i = 0; i< kolumny; i++)
   {
-    for (int j =0; j<3; j++)
+    array[i] = (int *) malloc(wiersze*sizeof(int));
+  }
+  return array;
+}
+
+void wypelnij (int** macierz,int a, int b)
+{
+  for (int i =0; i<a; i++)
+  {
+    for (int j =0; j<b; j++)
     {
       macierz[i][j]=rand()%10;
     }
   }
 }
-void wypisz(int macierz[3][3])
+void wypisz(int** macierz,int a, int b)
 {
-  for (int i =0; i<3; i++)
+  for (int i =0; i<a; i++)
   {
-    for (int j =0; j<3; j++)
+    for (int j =0; j<b; j++)
     {
       if (macierz [i][j]<10)
         printf("%d ", macierz[i][j]);
@@ -25,32 +35,34 @@ void wypisz(int macierz[3][3])
   }
 }
 
-int wyznacznik(int macierz[3][3])
+int wyznacznik(int** macierz,int a, int b)
 {
-  int a=0;
-  for (int i =0; i<3; i++)
+  int det=0;
+  for (int i =0; i<a; i++)
   {
     int iloczynprawy=1;
     int iloczynlewy=-1;
 
-    for (int j=0; j<3; j++)
+    for (int j=0; j<b; j++)
     {
-      iloczynprawy *=macierz[(i+j)%3][j];
-      iloczynlewy *=macierz[(i+j)%3][2-j];
+      iloczynprawy =iloczynprawy*macierz[(i+j)%3][j];
+      iloczynlewy =iloczynlewy*macierz[(i+j)%3][2-j];
     }
-    a+= iloczynlewy+iloczynprawy;
+    det = det+ iloczynlewy+iloczynprawy;
   }
-  return a;
+  return det;
 }
+
 int main(void)
 {
   srand(time(0));
+  int wiersze = 3;
+  int kolumny = 3;
+  int**macierz = stworzTablice2D(wiersze,kolumny);
+  wypelnij (macierz,wiersze,kolumny);
+  wypisz (macierz,wiersze,kolumny);
 
-  int macierz [3][3];
-  wypelnij (macierz);
-  wypisz (macierz);
-
-  int w= wyznacznik(macierz);
+  int w= wyznacznik(macierz,wiersze,kolumny);
   printf("Wyznacznik = %d\n", w);
 
   return 0;
