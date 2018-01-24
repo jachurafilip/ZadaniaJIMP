@@ -6,53 +6,51 @@ void getMessage(char* message)
 {
 	do
 	{
-		printf("Podaj wiadomosc do zaszyfrowania (bez spacji, do 11 znakow) : ");
+		printf("Podaj wiadomosc do zaszyfrowania (bez spacji) : ");
 		scanf("%s",message);
-	} while (strlen(message)>11);
+	} while (strlen(message) > 128);
 }
 
 void convertTextToHex(char* text, char* hexText)
 {
 	int lenght = strlen(text);
-	int number=0;
-	int tmp=0;
-	int j =0;
-	for (int i =0; i<lenght; i++)
+	int number = 0;
+	int tmp = 0;
+	for (int i = 0, j = 0; i < lenght; i++)
 	{
 		number = text[i];
-		tmp = number%16;
+		tmp = number % 16;
 		
-		if (tmp<10)
-			tmp+=48;
+		if (tmp < 10)
+			tmp += '0';
 		else
-			tmp+=87;
-		hexText[j+1]=tmp;
-		tmp = number/16;
-		if (tmp<10)
-			tmp+=48;
+			tmp += 'a' - 10;
+		hexText[j+1] = tmp;
+		tmp = number / 16;
+		if (tmp < 10)
+			tmp += '0';
 		else
-			tmp+=55;
-		hexText[j]=tmp;
-		j+=2;
+			tmp += 'a' - 10;
+		hexText[j] = tmp;
+		j += 2;
 	}
 }
 
 void convertHexToText(char* text, char* hexText)
 {
 	char liczba;
-	int j=0;
 	int lenght = strlen(hexText);
-	for (int i = 0; i<lenght; i+=2)
+	for (int i = 0, j = 0; i < lenght; i += 2)
 	{
 		liczba = 0;
-		if (hexText[i]<65)
-			liczba+= (hexText[i]-48)*16;
+		if (hexText[i] < 'A')
+			liczba += (hexText[i] - '0') * 16;
 		else
-			liczba+=(hexText[i]-87)*16;
-		if (hexText[i+1]<65)
-			liczba+= (hexText[i+1]-48);
+			liczba +=(hexText[i] - 'a' + 10) * 16;
+		if (hexText[i+1] < 'A')
+			liczba += (hexText[i+1] - '0');
 		else
-			liczba+=(hexText[i+1]-87);
+			liczba += (hexText[i+1] - 'a' + 10);
 		text[j] = liczba;
 		j++;
 	}
