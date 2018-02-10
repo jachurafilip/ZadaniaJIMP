@@ -1,6 +1,8 @@
 #include <stdio.h>
+
 #define ZAKRES_MIN 1
 #define ZAKRES_MAX 10
+
 void zgadnij (int n)
 {
   printf ("Twoja liczba to: ");
@@ -48,8 +50,7 @@ int sprawdz (int n)
 
 int main (void)
 {
-  int n=0;
-  n = sprawdz (n);
+  int n = sprawdz (n);
   zgadnij (n);
   return 0;
 }
