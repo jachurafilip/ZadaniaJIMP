@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-  double CelsjuszDoFarenheit(double temp) 
-  {
-    return temp * 1.8 + 32;
-  }
+double CelsjuszDoFarenheit(double temp) 
+{
+  return temp * 1.8 + 32;
+}
 
 double FarenheitDoCelsjusz(double temp) 
 {
@@ -18,14 +18,14 @@ void wybierz(char c)
   scanf("%lf", & temp);
   switch (c) 
   {
-  case 'c':
-    printf("%lf", CelsjuszDoFarenheit(temp));
-    break;
-  case 'f':
-    printf("%lf", FarenheitDoCelsjusz(temp));
-    break;
-  default:
-    printf("Wprowadziles zle dane");c
+    case 'c':
+      printf("%lf", CelsjuszDoFarenheit(temp));
+      break;
+    case 'f':
+      printf("%lf", FarenheitDoCelsjusz(temp));
+      break;
+    default:
+      printf("Wprowadziles zle dane");
   }
 }
 
@@ -35,8 +35,7 @@ int main()
          "c - Celsjusz na Farenheit \n"
          "f - Farenheit na Celsjusz \n");
     
-  char stopnie;
-  stopnie = getchar();
+  char stopnie = getchar();
   wybierz(stopnie);
   return 0;
 }
