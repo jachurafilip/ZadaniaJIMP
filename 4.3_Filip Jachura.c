@@ -9,47 +9,47 @@ int losujLiczbe()
 
 void stworzTablice(int tab[], int rozmiar)
 {
-  for (int i=0; i<rozmiar; i++)
+  for (int i = 0; i < rozmiar; i++)
   {
-    tab[i]=1;
+    tab[i] = 1;
   }
-  int a=losujLiczbe();
-  tab[a]+=1;
+  int wylosowana = losujLiczbe();
+  tab[wylosowana] += 1;
 }
 
 void wybierzKulki(int tab[], int ile)
 {
-  int tmp;
-  printf("Podaj %d numerow kulek, ktore chcesz zwazyc (z przedzialu 0-8): \n",ile);
-  for (int i=0; i<ile; i++)
+  int numerKulki;
+  printf("Podaj %d numerow kulek, ktore chcesz zwazyc (z przedzialu 0-8): \n", ile);
+  for (int i = 0; i < ile; i++)
   {
-    scanf("%d", &tmp);
+    scanf("%d", &numerKulki);
 
-    while(tmp>8)
+    while(numerKulki > 8)
     {
       printf("Podaj liczbe z przedzialu 0-8\n");
-      scanf("%d",&tmp);
+      scanf("%d", &numerKulki);
     }
-    tab[i]=tmp;
+    tab[i]=numerKulki;
   }
 }
 void Wazenie1(int kulki[], int mojeKulki[])
 {
-  int lewa = kulki[mojeKulki[0]]+kulki[mojeKulki[1]]+kulki[mojeKulki[2]];
-  int prawa = kulki[mojeKulki[3]]+kulki[mojeKulki[4]]+kulki[mojeKulki[5]];
+  int lewa = kulki[mojeKulki[0]] + kulki[mojeKulki[1]] + kulki[mojeKulki[2]];
+  int prawa = kulki[mojeKulki[3]] + kulki[mojeKulki[4]] + kulki[mojeKulki[5]];
 
   if(lewa == prawa)
   {
-    printf("Kulki %d, %d i %d waza tyle samo co %d, %d i %d\n",mojeKulki[0],mojeKulki[1],mojeKulki[2],mojeKulki[3],mojeKulki[4],mojeKulki[5]);
+    printf("Kulki %d, %d i %d waza tyle samo co %d, %d i %d\n", mojeKulki[0], mojeKulki[1], mojeKulki[2], mojeKulki[3], mojeKulki[4], mojeKulki[5]);
   }
   else if(lewa > prawa)
   {
-    printf("Kulki %d, %d i %d sa ciezsze niz %d, %d i %d\n",mojeKulki[0],mojeKulki[1],mojeKulki[2],mojeKulki[3],mojeKulki[4],mojeKulki[5]);
+    printf("Kulki %d, %d i %d sa ciezsze niz %d, %d i %d\n",mojeKulki[0], mojeKulki[1], mojeKulki[2], mojeKulki[3], mojeKulki[4], mojeKulki[5]);
   }
 
   else
   {
-    printf("Kulki %d, %d i %d sa lzejsze niz %d, %d i %d\n",mojeKulki[0],mojeKulki[1],mojeKulki[2],mojeKulki[3],mojeKulki[4],mojeKulki[5]);
+    printf("Kulki %d, %d i %d sa lzejsze niz %d, %d i %d\n",mojeKulki[0], mojeKulki[1], mojeKulki[2], mojeKulki[3], mojeKulki[4], mojeKulki[5]);
   }
 }
 void Wazenie2(int kulki[], int mojeKulki[])
@@ -59,18 +59,18 @@ void Wazenie2(int kulki[], int mojeKulki[])
 
   if (lewa == prawa)
   {
-    printf("Kulki %d i %d waza tyle samo\n",mojeKulki[0],mojeKulki[1]);
+    printf("Kulki %d i %d waza tyle samo\n", mojeKulki[0], mojeKulki[1]);
   }
   else if (lewa > prawa)
   {
-    printf("Kulka %d jest ciezsza od %d\n",mojeKulki[0],mojeKulki[1]);
+    printf("Kulka %d jest ciezsza od %d\n", mojeKulki[0], mojeKulki[1]);
   }
   else
   {
-    printf("Kulka %d jest lzejsza od %d\n",mojeKulki[0],mojeKulki[1]);
+    printf("Kulka %d jest lzejsza od %d\n", mojeKulki[0], mojeKulki[1]);
   }
 }
-int tabMax(int tab[], int dlugosc)
+int wartoscMaksymalna(int tab[], int dlugosc)
 {
   int max,indeks;
   for (int i =0; i<dlugosc; i++)
@@ -103,7 +103,7 @@ int main(void)
   int najciezsza;
   scanf("%d", &najciezsza);
 
-  if(najciezsza == tabMax(kulki,9))
+  if(najciezsza == wartoscMaksymalna(kulki,9))
   {
       printf("Dobra robota, zgadles, ktora kulka jest najciezsza!");
   }
