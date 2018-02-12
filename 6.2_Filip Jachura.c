@@ -19,24 +19,25 @@ int przestepny(int rok)
 }
 void rysuj(int rok, int miesiac, int dzienmies, int dzientyg)
 {
-  int format=(dzientyg-dzienmies+49)%7;
+  int format = (dzientyg - dzienmies + 49) % 7;
   printf("PON WTO SRO CZW PIA SOB NIE\n");
-  for (int i=0; i<format;i++)
+  for (int i = 0; i < format; i++)
   {
     printf("    ");
   }
-  for (int i =1; i<=dni[miesiac];i++)
+  for (int i = 1; i <= dni[miesiac];  i++)
   {
     if(przestepny(rok))
     {
-      dni[2]+=1;
+      dni[2] += 1;
     }
     if(i<10)
     {
       printf(" ");
     }
     printf("%d  ",i);
-    if ((i+format)%7==0)
+    
+    if ((i + format) % 7 == 0)
     {
       printf("\n");
     }
@@ -49,10 +50,10 @@ int main()
   struct tm czas;
   time(&sekundy);
   localtime_s(&czas,&sekundy);
-  
+
   char tytul[20];
-  strftime(tytul,20,"%B %Y", &czas);
-  
+  strftime(tytul, 20, "%B %Y", &czas);
+
   printf("\t%s\n",tytul);
-  rysuj(czas.tm_year, czas.tm_mon+1,czas.tm_mday,czas.tm_wday%7);
+  rysuj(czas.tm_year, czas.tm_mon+1, czas.tm_mday, czas.tm_wday%7);
 }
