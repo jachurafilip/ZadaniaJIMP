@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include<conio.h> //getch()  DZIAŁA TYLKO NA WINDOWSIE
+
 int compare(const void* _a, const void* _b)
 {
   int a = *(int*)_a;
@@ -11,15 +12,15 @@ int compare(const void* _a, const void* _b)
 
 void losuj(int* tab)
 {
-	for (int i=0; i<10; i++)
+	for (int i = 0; i < 10; i++)
   {
-		*(tab+i)=rand()%100;
+		*(tab+i) = rand()%100;
 	}
 }
 void drukuj(int* tab)
 {
 	printf("[");
-	for (int i=0; i<10; i++)
+	for (int i = 0; i < 10; i++)
   {
 		printf("%d ", *(tab+i));
 	}
@@ -27,40 +28,40 @@ void drukuj(int* tab)
 }
 float srednia(int* tab)
 {
-	int suma=0;
-	for (int i=0; i<10;i++)
+	int suma = 0;
+	for (int i = 0; i < 10; i++)
   {
-		suma+=*(tab+i);
+		suma += *(tab+i);
 	}
 	return suma/10.0;
 }
 float mediana(int* tab)
 {
   int kopia[10];
-  for (int i=0;i<10;i++)
+  for (int i = 0; i < 10; i++)
   {
-    kopia[i]=*(tab+i);
+    kopia[i] = *(tab+i);
   }
-	qsort(kopia,10,sizeof(int),compare);
-  return (kopia[4]+kopia[5])/2.0;
+	qsort(kopia, 10, sizeof(int) ,compare);
+  return (kopia[4] + kopia[5]) / 2.0;
 }
 int min(int* tab)
 {
-	int min=tab[0];
-	for(int i=1;i<10;i++)
+	int min = tab[0];
+	for(int i = 1; i<10; i++)
   {
-    if (min>tab[i])
-			min=tab[i];
+    if (min > tab[i])
+			min = tab[i];
 	}
 	return min;
 }
 int max(int* tab)
 {
-	int maks=tab[0];
-	for(int i=1;i<10;i++)
+	int maks = tab[0];
+	for(int i = 1; i < 10; i++)
   {
-		if (maks<tab[i])
-			maks=tab[i];
+		if (maks < tab[i])
+			maks = tab[i];
 	}
 	return maks;
 }
@@ -71,7 +72,6 @@ void program()
 	int c;
 	while (c!=54)
   {
-
 		printf("Menu\n"
            "1. Losuj\n"
            "2. Wyswietl\n"
@@ -80,7 +80,7 @@ void program()
            "5. Znajdz element maksymalny i minimalny\n"
            "6. Zakoncz program\n");
 		c = getch();
-		while(c<49 && c>54)
+		while(c < 49 && c > 54)
     {
       printf("Wcisnij poprawny klawisz(1-6)\n");
       c = getch();
