@@ -9,7 +9,7 @@ float srednia(int* pocz, int* kon)
     suma += (*(pocz+i)*i);
     waga += i;
 
-  return suma/waga;
+  return suma / waga;
 }
 
 int main()
